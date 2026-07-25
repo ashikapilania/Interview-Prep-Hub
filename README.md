@@ -5,6 +5,10 @@ A modern and responsive Interview Preparation Hub built using **HTML, CSS, and J
 ## 🌐 Live Demo
 https://ashika-prep-hub-interview.netlify.app/
 
+## 📸 Preview
+
+![Interview Prep Hub](screenshot.png.png)
+
 ## ✨ Features
 
 - 📊 Dashboard
@@ -28,11 +32,15 @@ https://ashika-prep-hub-interview.netlify.app/
 ## 📁 Project Structure
 
 ```
-Interview-Prep-Hub/
-│── index.html
-│── style.css
-│── script.js
-│── data.js
+interview-prep-hub/
+├── index.html
+├── README.md
+├── screenshot.png
+├── css/
+│   └── style.css
+└── js/
+    ├── data.js
+    └── script.js
 ```
 
 ## 🚀 How to Run
