@@ -32,10 +32,14 @@ https://ashika-prep-hub-interview.netlify.app/
 ## 📁 Project Structure
 
 ```
-interview-prep-hub/
+Interview-Prep-Hub/
 ├── index.html
 ├── README.md
-├── screenshot.png
+├── assets/
+│   └── screenshots/
+│       ├── screenshot.png
+│       ├── screenshot2.png
+│       └── screenshot3.png
 ├── css/
 │   └── style.css
 └── js/
