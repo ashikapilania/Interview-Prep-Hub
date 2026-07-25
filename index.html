@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview Prep Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===================== SIDEBAR NAV ===================== -->
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-text">Prep<em>Hub</em></span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-btn active" data-page="dashboard">
+        <span class="nav-icon">◆</span> Dashboard
+      </button>
+      <button class="nav-btn" data-page="coding">
+        <span class="nav-icon">{ }</span> Daily Coding
+      </button>
+      <button class="nav-btn" data-page="aptitude">
+        <span class="nav-icon">Σ</span> Aptitude Quiz
+      </button>
+      <button class="nav-btn" data-page="hr">
+        <span class="nav-icon">◎</span> HR Questions
+      </button>
+      <button class="nav-btn" data-page="technical">
+        <span class="nav-icon">⌘</span> Technical Q&amp;A
+      </button>
+      <button class="nav-btn" data-page="resume">
+        <span class="nav-icon">▤</span> Resume Checklist
+      </button>
+      <button class="nav-btn" data-page="notes">
+        <span class="nav-icon">✎</span> Notes
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark and light mode">
+        <span id="themeIcon">☾</span> <span id="themeLabel">Dark Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main class="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 id="pageTitle">Dashboard</h1>
+        <p id="pageSubtitle" class="subtitle">Your placement prep, at a glance.</p>
+      </div>
+      <div class="streak-badge">
+        <span class="flame">🔥</span>
+        <div class="streak-text">
+          <strong id="streakCount">0</strong>
+          <span>day streak</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============ DASHBOARD PAGE ============ -->
+    <section class="page active" id="page-dashboard">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-label">Coding Solved</span>
+          <span class="stat-value" id="statCoding">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Aptitude Score</span>
+          <span class="stat-value" id="statAptitude">0%</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Resume Progress</span>
+          <span class="stat-value" id="statResume">0%</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Notes Saved</span>
+          <span class="stat-value" id="statNotes">0</span>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card overview-card">
+          <h3>Overall Progress</h3>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 140 140" class="progress-ring">
+              <circle cx="70" cy="70" r="60" class="ring-bg"></circle>
+              <circle cx="70" cy="70" r="60" class="ring-fg" id="overallRing"></circle>
+            </svg>
+            <div class="ring-center">
+              <span id="overallPercent">0%</span>
+              <small>complete</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Quick Jump</h3>
+          <div class="quick-links">
+            <button class="quick-link" data-page="coding">Today's Coding Challenge →</button>
+            <button class="quick-link" data-page="aptitude">Take Aptitude Quiz →</button>
+            <button class="quick-link" data-page="hr">Review HR Questions →</button>
+            <button class="quick-link" data-page="resume">Check Resume →</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Reset Progress</h3>
+        <p class="muted">Clears all saved data from this browser (Local Storage).</p>
+        <button id="resetBtn" class="btn danger">Reset All Progress</button>
+      </div>
+    </section>
+
+    <!-- ============ DAILY CODING PAGE ============ -->
+    <section class="page" id="page-coding">
+      <div class="card">
+        <div class="challenge-head">
+          <span class="tag" id="codingDifficulty">Medium</span>
+          <span class="muted">Problem #<span id="codingIndex">1</span> of <span id="codingTotal">1</span></span>
+        </div>
+        <h2 id="codingTitle">Loading...</h2>
+        <p id="codingDesc" class="problem-desc"></p>
+        <div class="example-box">
+          <strong>Example</strong>
+          <pre id="codingExample"></pre>
+        </div>
+        <div class="row-actions">
+          <button class="btn ghost" id="codingHintBtn">Show Hint</button>
+          <button class="btn ghost" id="codingNewBtn">Shuffle Problem</button>
+          <button class="btn primary" id="codingDoneBtn">Mark as Solved ✓</button>
+        </div>
+        <p id="codingHint" class="hint hidden"></p>
+      </div>
+    </section>
+
+    <!-- ============ APTITUDE QUIZ PAGE ============ -->
+    <section class="page" id="page-aptitude">
+      <div class="card">
+        <div id="aptitudeQuizArea">
+          <div class="quiz-progress-bar"><div id="aptitudeProgressFill" class="quiz-progress-fill"></div></div>
+          <p class="muted">Question <span id="aptQNum">1</span> of <span id="aptQTotal">1</span></p>
+          <h2 id="aptQuestion"></h2>
+          <div class="options" id="aptOptions"></div>
+          <button class="btn primary" id="aptNextBtn" disabled>Next</button>
+        </div>
+        <div id="aptResultArea" class="hidden">
+          <h2>Quiz Complete 🎉</h2>
+          <p class="big-score" id="aptFinalScore"></p>
+          <button class="btn primary" id="aptRetakeBtn">Retake Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HR QUESTIONS PAGE ============ -->
+    <section class="page" id="page-hr">
+      <div class="card">
+        <p class="muted">Click a question to reveal a sample answer approach.</p>
+        <div class="accordion" id="hrAccordion"></div>
+      </div>
+    </section>
+
+    <!-- ============ TECHNICAL QUESTIONS PAGE ============ -->
+    <section class="page" id="page-technical">
+      <div class="card">
+        <div class="filter-row" id="techFilters"></div>
+        <div class="accordion" id="technicalAccordion"></div>
+      </div>
+    </section>
+
+    <!-- ============ RESUME CHECKLIST PAGE ============ -->
+    <section class="page" id="page-resume">
+      <div class="card">
+        <div class="checklist-head">
+          <h3>Resume Checklist</h3>
+          <span id="resumeProgressText" class="muted">0 / 0 done</span>
+        </div>
+        <div class="checklist" id="resumeChecklist"></div>
+      </div>
+    </section>
+
+    <!-- ============ NOTES PAGE ============ -->
+    <section class="page" id="page-notes">
+      <div class="card">
+        <h3>Add a Note</h3>
+        <textarea id="noteInput" placeholder="Write a quick note, formula, or reminder..." rows="3"></textarea>
+        <button class="btn primary" id="addNoteBtn">Save Note</button>
+      </div>
+      <div class="notes-grid" id="notesGrid"></div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
