@@ -7,7 +7,7 @@ https://ashika-prep-hub-interview.netlify.app/
 
 ## 📸 Preview
 
-![Interview Prep Hub](screenshot.png.png)
+![Interview Prep Hub](screenshot.png)
 
 ## ✨ Features
 
